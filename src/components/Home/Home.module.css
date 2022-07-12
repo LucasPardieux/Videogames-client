@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+
+body{
+    background-color: #010615;
+}
+
+.homeAll{
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.homeVideo{
+    position: relative;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    box-shadow: 0px 21px 17px 0px #cc150439;
+}
+.homeVideo video{
+    position: relative;
+    bottom: 20px;
+    right: 0px;
+    width: 100%;
+}
+
+.homeContainer{
+    position: absolute;
+    height: max-content;
+    width: 100%;
+    top: 69.5%;
+    z-index: -3;
+    background-color: #010615;
+}
+
+.homeContainer ul{
+    list-style: none;
+}
+
+.filterContainer{
+    position: relative;
+    right: 20px;
+    bottom: 40px;
+}
+
+.filterContainer ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.filterContainer select{
+    width: 365px;
+    height: 50px;
+    /* background: linear-gradient(0deg, #000000 0%, #000000 0%, #0f1114 0%, #14161c 33%, #242731 66%, #353b48 100%); */
+    background: #242731;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: large;
+    border: 0!important;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 21px 17px 0px #cc150439;
+    outline: none;
+}
+
+.filterContainer button{
+    height: 50px;
+    width: 200px;
+    background-image: linear-gradient(0deg, #000000 0%, #000000 0%, #0f1114 0%, #14161c 33%, #242731 66%, #353b48 100%);
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: large;
+    box-shadow: 0px 21px 17px 0px #cc150439;
+}
+
+.filterContainer select::-ms-expand{
+    display: none;
+}

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+
+.navContainer{
+    
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    min-height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.navLogo img{
+    position: relative;
+    right: 50%;
+    height: 70px;
+    width: 280px;
+}
+
+.navList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.navList li{
+    position: relative;
+    right: 10%;
+    margin-left: 40px;
+    margin-top: 2px;
+    list-style: none;
+    font-size: large;
+}
+
+.navLink{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    opacity: .5;
+}
+
+.navLink:hover{
+    opacity: 1;
+}
+
+.navSearch{
+    position: relative;
+    left: 5%;
+}
+
+.navSearch input{
+    background-color: rgba(107, 107, 107, 0.25);
+    border: 0px;
+    height: 40px;
+    border-radius: 1px;
+    width: 200px;
+    font: inherit;
+    margin-bottom: 0;
+    padding: 0px 15px;
+    color: rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navSearch input::placeholder{
+    color:white;
+}
+
+.navSearch button{
+    position: relative;
+    top: 1.5px;
+    background-color: rgba(107, 107, 107, 0.25);
+    border: 0px;
+    height: 40px;
+    margin-bottom: 0;
+    width: auto;
+    cursor: pointer;
+    padding: 0px 15px;
+    box-shadow: none;
+    color: white;
+}
+
+.navSearchIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.inBuild {
+    position: absolute;
+    width: 95px;
+    height: 70px;
+    left: 48%;
+    top: 25%;
+    transition: 0.5s;
+}
+
+.inBuild img{
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+}
+
+.inBuild1 {
+    position: absolute;
+    width: 80px;
+    height: 70px;
+    left: 56%;
+    top: 25%;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.inBuild1 img{
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+}
+
+.inBuild:hover img{
+    opacity: 1;
+}
+
+.inBuild1:hover img{
+    opacity: 1;
+}

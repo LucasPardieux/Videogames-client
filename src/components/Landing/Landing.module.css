@@ -1,0 +1,206 @@
+body{
+    background-color:white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+.page img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: auto; /*Firefox*/
+    overflow: overlay;
+    
+    z-index: -1;
+}
+
+.image{
+    position: absolute;
+    top: 450px;
+    height: 250px;
+    width: 100%;
+    object-position: 0 0 50px;
+    object-fit: cover;
+}
+
+.page .pandora{
+    position: absolute;
+    left: 41.6%;
+    top: 421px;
+    width: 280px;
+    height: 300px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.page .pandora:hover{
+    left: 39.2%;
+    top: 370px;
+    width: 350px;
+    height: 370px;
+}
+
+
+.page h1{
+    position: absolute;
+    top: 200px;
+    left: 33%;
+    color: white;
+    font-size: 65px;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+}
+
+.page h3{
+    position: absolute;
+    top: 280px;
+    left: 43%;
+    font-size: 45px;
+    color: white;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+}
+
+.page button{
+    position: absolute;
+    width: 180px;
+    height: 50px;
+    top: 350px;
+    left: 44%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.194);
+    border: 2px solid goldenrod;
+    color: goldenrod;
+    border-radius: 15px;
+    font-size: 40px;
+    font-family: 'Dongle', sans-serif;
+}
+
+.page button:hover{
+    background-color: black;
+    color: goldenrod;
+}
+
+.buton{
+    position: relative;
+    background: #fff;
+    left: 45%;
+    top: 840px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.buton:hover{
+    background: #e84118;
+    color: #e84118;
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px #e84118;
+}
+
+.buton:before{
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background: #010615;
+
+}
+
+.buton span{
+    position: relative;
+    z-index: 1;
+
+}
+
+.buton i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.buton i::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background: #010615;
+    transform: translateX(-50%) skewX(325deg);
+    -webkit-transform: translateX(-50%) skewX(325deg);
+    -moz-transform: translateX(-50%) skewX(325deg);
+    -ms-transform: translateX(-50%) skewX(325deg);
+    -o-transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.buton:hover i::before{
+width: 20px;
+left: 20%;
+}
+
+.buton i::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10px;
+    height: 4px;
+    background: #010615;
+    transform: translateX(-50%) skewX(325deg);
+    -webkit-transform: translateX(-50%) skewX(325deg);
+    -moz-transform: translateX(-50%) skewX(325deg);
+    -ms-transform: translateX(-50%) skewX(325deg);
+    -o-transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.buton:hover i::after{
+width: 20px;
+left: 80%;
+}
+
+.page .arrowLeft{
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    left: 25%;
+    top: 500px;
+    transform: scaleX(-1);
+}
+
+.page .arrowRight{
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    left: 63%;
+    top: 500px;
+}
