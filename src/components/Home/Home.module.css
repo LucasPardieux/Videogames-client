@@ -145,16 +145,44 @@ body{
     }
 }
 
-@media screen and (max-height:650px) {
+@media screen and (max-height:750px) {
+    .homeContainer{
+        top: 85.5%;
+    }
+}
+
+@media screen and (max-height:687px) {
+    .homeContainer{
+        top: 90.5%;
+
+    }
+}
+
+@media screen and (max-height:647px) {
     .homeContainer{
         top: 95.5%;
+
     }
 }
 
 @media screen and (max-height:600px) {
     .homeContainer{
-        top: 110.5%;
-        right: 5%;
+        top: 105.5%;
+
+    }
+}
+
+@media screen and (max-height:553px) {
+    .homeContainer{
+        top: 112.5%;
+
+    }
+}
+
+@media screen and (max-height:520px) {
+    .homeContainer{
+        top: 120.5%;
+
     }
 }
 
