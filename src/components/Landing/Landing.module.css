@@ -43,7 +43,7 @@
 
 .page h1{
     position: absolute;
-    top: 10%;
+    top: 5%;
     margin-left: auto;
     margin-right: auto;
     left: 33.33%;
@@ -56,7 +56,7 @@
 
 .page h3{
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 40%;
     right: 40%;
     font-size: 45px;
@@ -171,7 +171,7 @@ left: 80%;
 .butonHome{
     position: absolute;
     background: #fff;
-    left: 40%;
+    left: 42%;
     top: 58vh;
     color: #fff;
     text-decoration: none;
@@ -282,7 +282,7 @@ left: 80%;
     top: 55%;
 }
 
-@media(max-width:1080px){
+@media(max-width:1300px){
     .page .pandora{
         width: 14.5em;
         height: 15.75em;
@@ -290,7 +290,7 @@ left: 80%;
     }
 }
 
-@media(max-width:805px){
+@media(max-width:1050px){
     .page .arrowRight{
         display: none;
     }
