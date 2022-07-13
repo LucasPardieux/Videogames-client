@@ -145,6 +145,12 @@ body{
     }
 }
 
+@media screen and (max-height:650px) {
+    .homeContainer{
+        top: 95.5%;
+    }
+}
+
 @media screen and (max-height:600px) {
     .homeContainer{
         top: 110.5%;
