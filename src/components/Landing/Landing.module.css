@@ -317,3 +317,18 @@ left: 80%;
         opacity: 1;
     }
 }
+
+@media(max-width:1090px){
+    @media(min-height:2000px){
+        .page h1{
+            font-size: 80px;
+            top: 10%;
+        }
+        .page h3{
+            font-size: 90px;
+            left: 30%;
+            right: 30%;
+            top: 33%;
+        }
+    }
+}
