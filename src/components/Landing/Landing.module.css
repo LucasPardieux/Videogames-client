@@ -305,30 +305,17 @@ left: 80%;
 
     .page h1{
         left: 35%;
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .page h3{
         left: 38%;
         top: 35%;
+        font-size: 40px;
     }
 
     .butonHome{
         opacity: 1;
-    }
-}
-
-@media(max-width:1090px){
-    @media(min-height:2000px){
-        .page h1{
-            font-size: 80px;
-            top: 10%;
-        }
-        .page h3{
-            font-size: 90px;
-            left: 30%;
-            right: 30%;
-            top: 33%;
-        }
+        top: 80%;
     }
 }
