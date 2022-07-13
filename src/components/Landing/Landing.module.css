@@ -24,7 +24,7 @@
     position: absolute;
     left: 41.5%;
     right: 44.5%;
-    top: 45%;
+    top: 43%;
     width: 17.5em;
     height: 18.75em;
     transition: 0.5s;
@@ -56,7 +56,7 @@
 
 .page h3{
     position: absolute;
-    top: 280px;
+    top: 20%;
     left: 40%;
     right: 40%;
     font-size: 45px;
