@@ -6,6 +6,7 @@ import logo from '../../images/gamerCaveLogo.png'
 import { putSearchedGames, getAllGames, getItemSearch } from '../../redux/reducer/reducer';
 import { BiSearchAlt } from "react-icons/bi";
 import inBuild from "../../images/Under-Construction-PNG-Images.png"
+import {HiRefresh} from "react-icons/hi"
 
 
 export class Nav extends Component {
