@@ -153,6 +153,7 @@
     right: 2.5em;
     font-size: 25px;
     padding: 5px;
+    cursor: pointer;
     transition: 0.5s;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -174,10 +175,6 @@
     font-size: 30px;
     cursor: pointer;
     display: none;
-}
-
-.menuResponsiveLi input{
-    
 }
 
 @media (max-width:1222px) {
