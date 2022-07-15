@@ -39,7 +39,7 @@ export const gameSlice = createSlice({
     }
 })
 
-export const { setAllGames, setAllGenres, setGame, setLoading, setSearch, gameSearched } = gameSlice.actions;
+export const { setAllGames, setAllGenres, setGame, setLoading, setSearch, gameSearched, setItemSearch } = gameSlice.actions;
 
 export default gameSlice.reducer;
 
