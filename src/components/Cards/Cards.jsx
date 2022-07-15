@@ -29,7 +29,7 @@ export const Cards = (props) => {
 
   return (
     <div className={`${style.contenedor}`}>
-            {search!==""?<div className={`${style.prevNext}`}>
+            {search===""?<div className={`${style.prevNext}`}>
                 <p>{props.currentPage+1}</p>
                 <span>/</span>
                 <p>{Math.ceil(props.pageCount)}</p>
