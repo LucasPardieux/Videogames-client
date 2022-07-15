@@ -245,6 +245,33 @@ const Home = () => {
     }
   }
 
+  const apiDataBase = (e) => {
+    const value = e.target.value;
+    setCurrentPage(0);
+    if (value === "api") {
+      if (search !== "") {
+        const neatArray = [...gameSearched].filter((e) => typeof(e.id)==="number")
+        return dispatch(getItemSearch(neatArray))
+      }else{
+        const neatArray = [...allGames].filter((e) => typeof(e.id)==="number")
+        setItems(neatArray.slice(currentPage, currentPage + ITEMS_PER_PAGE));
+        satDataFromApi(neatArray)
+        return;
+      }
+    }
+    if (value === "db") {
+      if (search !== "") {
+        const neatArray = [...gameSearched].filter((e) => typeof(e.id)==="string")
+        return dispatch(getItemSearch(neatArray))
+      }else{
+        const neatArray = [...allGames].filter((e) => typeof(e.id)==="string")
+        setItems(neatArray.slice(currentPage, currentPage + ITEMS_PER_PAGE));
+        satDataFromApi(neatArray)
+        return;
+      }
+    }
+  }
+
 
   return (
     <div className={`${style.homeAll}`}>
@@ -256,10 +283,12 @@ const Home = () => {
           <div className={`${style.gridButton}`}>
             <li><button onClick={(e) => alphaOrder(e)} value={"up"}>▲name▲</button></li>
             <li><button onClick={(e) => alphaOrder(e)} value={"down"}>▼name▼</button></li>
-            <li><button onClick={prevHandler}><AiOutlineArrowLeft /></button></li>
-            <li><button onClick={nextHandler}><AiOutlineArrowRight /></button></li>
             <li><button onClick={(e) => ratingOrder(e)} value={"up"}>▲rating▲</button></li>
             <li><button onClick={(e) => ratingOrder(e)} value={"down"}>▼rating▼</button></li>
+            <li><button onClick={prevHandler}><AiOutlineArrowLeft /></button></li>
+            <li><button onClick={nextHandler}><AiOutlineArrowRight /></button></li>
+            <li><button onClick={(e) => apiDataBase(e)} value={"api"}>Api</button></li>
+            <li><button onClick={(e) => apiDataBase(e)} value={"db"}>Data Base</button></li>
           </div>
           <li><select defaultValue={"null"} name="genres" onChange={e => genreSelect(e)}>
             <option value="null">All</option>
