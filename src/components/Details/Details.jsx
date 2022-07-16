@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import style from "./Details.module.css"
 import { getGame } from '../../redux/reducer/reducer';
-import { ImStarEmpty, ImStarHalf, ImStarFull } from "react-icons/im"
-import user from "../../images/pinpng.png"
+import { ImStarEmpty, ImStarHalf, ImStarFull } from "react-icons/im";
+import user from "../../images/pinpng.png";
 
 export class Details extends Component {
 
@@ -95,7 +95,7 @@ export class Details extends Component {
     }
 
     showHtml() {
-        return (<div>
+        return (<div className={`${style.contenedor}`}>
             {console.log(this.props)}
             <div className={`${style.headerImage}`}>
                 <img src={this.props.game.background_image?this.props.game.background_image:this.props.game.image} alt={`${this.props.game.name} background`} />
@@ -140,7 +140,7 @@ export class Details extends Component {
 
     render() {
         return (
-            <div>
+            <div className={`${style.allContainer}`}>
                 {this.props.loading === true ? "Loading..." : this.showHtml()}
             </div>
         )

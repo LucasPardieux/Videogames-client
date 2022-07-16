@@ -36,7 +36,7 @@
 
 .page .pandora:hover{
     left: 39.2%;
-    top: 370px;
+    top: 37%;
     width: 350px;
     height: 370px;
 }
@@ -286,7 +286,7 @@ left: 80%;
     .page .pandora{
         width: 14.5em;
         height: 15.75em;
-        top: 48%;
+        top: 45%;
     }
 }
 
@@ -319,3 +319,4 @@ left: 80%;
         top: 80%;
     }
 }
+
