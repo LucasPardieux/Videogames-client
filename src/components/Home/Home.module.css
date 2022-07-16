@@ -110,7 +110,7 @@ body{
     position: relative;
     left: 51%;
     right: 49%;
-    bottom: 0.5em;
+    bottom: 1em;
 }
 
 .refreshCont button{
@@ -157,11 +157,22 @@ body{
     .homeContainer{
         top: 79.5%;
     }
+    .refreshCont{
+        bottom: 1.5em;
+    }
+}
+@media screen and (max-height:802px) {
+    .refreshCont{
+        bottom: 2em;
+    }
 }
 
 @media screen and (max-height:750px) {
     .homeContainer{
         top: 85.5%;
+    }
+    .refreshCont{
+        bottom: 2.2em;
     }
 }
 
