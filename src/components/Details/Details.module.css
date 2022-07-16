@@ -3,8 +3,13 @@ body{
     background-color: #010615;
 }
 
+.contenedor{
+    width: 100%;
+}
+
 .headerImage{
-    height: 650px;
+    height: 40.625em;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -36,7 +41,7 @@ body{
 .gameDetails{
     color: white;
     position: absolute;
-    left: 31%;
+    left: 40%;
     top: 37.5%;
 }
 
@@ -49,7 +54,7 @@ body{
     word-wrap: break-word;
     margin: 25px;
     padding: 10px;
-    width: 1150px;
+    width: 70%;
     color: white;
 }
 
@@ -122,4 +127,9 @@ body{
 
 .eachComment img{
     width: 25px;
+}
+
+@media (max-height:830px) {
+    
+    
 }
