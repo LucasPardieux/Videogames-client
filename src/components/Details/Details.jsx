@@ -4,6 +4,7 @@ import style from "./Details.module.css"
 import { getGame } from '../../redux/reducer/reducer';
 import { ImStarEmpty, ImStarHalf, ImStarFull } from "react-icons/im";
 import user from "../../images/pinpng.png";
+import Loading from '../Loading/Loading';
 
 export class Details extends Component {
 
@@ -141,7 +142,7 @@ export class Details extends Component {
     render() {
         return (
             <div className={`${style.allContainer}`}>
-                {this.props.loading === true ? "Loading..." : this.showHtml()}
+                {this.props.loading === true ? <div className={`${style.loading}`}><Loading></Loading></div> : this.showHtml()}
             </div>
         )
     }

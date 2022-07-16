@@ -121,14 +121,12 @@ body{
     font-size: large;
 }
 
-/* @media screen and (max-width:1300px) {
-    .filterContainer button{
-        width: 9em;
+.loading{
+    position: relative;
+    top: 3em;
+    left: 46.5%;
+    right: 56%;
 }
-    .filterContainer select{
-        width: 17em;
-}
-} */
 
 @media screen and (max-width:1275px) {
     .filterContainer{
