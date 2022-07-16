@@ -13,7 +13,7 @@ const Card = (props) => {
     const platformIcon = (platforms) => {
         let platformsArray = [];
         var id;
-        platforms?.map((p) => () => {
+        platforms?.map((p) => {
             if(p.hasOwnProperty("platform")){id = p.platform.id}else{id = p}
             switch (id) {
                 case 187:case 18: case 16: case 15: case 27: case 19: case 17: case "playstation":
@@ -80,7 +80,7 @@ const Card = (props) => {
                 <div className={`${style.cardInfoReq}`}>
                      <h2>{props.name}</h2>
                      <p>Rating: {props.rating}</p>
-                     <p>Genres: {props.genres?.map((g) => {return <span key={g.name}>{g.name + " / "}</span>})}</p>
+                     <p>Genres: {props.genres?.map((g) => {return <span key={g.name}>{` / ${g.name}`}</span>})}</p>
                 </div>
                 <div className={`${style.cardInfoNoReq}`}>
                     <span>{platformIcon(props.platforms)}</span>
