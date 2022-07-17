@@ -47,13 +47,13 @@ export const getAllGames = (input) => async (dispatch) => {
     try {
         if(input===""||input===undefined){
             dispatch(setLoading(true));
-            const games = await axios.get("/videogames");
+            const games = await axios.get("https://gamer-cave-api.herokuapp.com/videogames");
             dispatch(setAllGames(games.data));
             dispatch(setLoading(false));
         }else{
             dispatch(setSearch(input))
             dispatch(setLoading(true));
-    return axios.get(`/videogames?name=${input}`)
+    return axios.get(`https://gamer-cave-api.herokuapp.com/videogames?name=${input}`)
         .then((response) => response.data)
         .then((data) => {
             dispatch(gameSearched(data))
