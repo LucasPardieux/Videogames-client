@@ -8,6 +8,8 @@ import Landing from './components/Landing/Landing';
 import Nav from './components/Nav/Nav';
 import Details from './components/Details/Details';
 import CreateGame from './components/CreateGame/CreateGame';
+import Favorite from './components/Favorite/Favorite';
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
       <Route exact path='/home' component={Home} />
       <Route exact path='/details/:idGame' component={Details} />
       <Route exact path='/createVideogame' component={CreateGame} />
+      <Route exact path='/favorites' component={Favorite} />
       </>
       
       </Switch>

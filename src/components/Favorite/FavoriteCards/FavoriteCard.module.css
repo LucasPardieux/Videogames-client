@@ -1,0 +1,71 @@
+
+
+.contenedor{
+    position: relative;
+    top: 10em;
+    margin-top: 50px;
+}
+
+.imageCont{
+    height: 10em;
+    width: 97%;
+    overflow: hidden;
+    border-radius: 29px; 
+}
+
+.imageCont:before{
+    content: "";
+    position: absolute;
+    z-index: 2;
+    height: 10em;
+    width: 97%;
+    /* box-shadow: 0px 0px 19px 1px #FFFFFF inset; */
+    backdrop-filter: blur(1px); 
+    background-color: rgba(255, 255, 255, 0); 
+    border-radius: 29px; 
+    box-shadow: 0px 35px 68px 0px rgba(0, 0, 0, 0.5), inset 0px -12px 16px 0px rgba(0, 0, 0, 0.6), inset 0px 10px 35px 0px rgb(255, 255, 255);
+}
+
+.imageCont img{
+    width: 100%;
+    position: relative;
+    bottom: 10em;
+}
+
+.information{
+    position: absolute;
+    z-index: 2;
+    margin-left: 30px;
+    top: 0em;
+    -webkit-text-stroke: 1px black;
+    color: white;    
+}
+
+.starsSpan{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 40em;
+    bottom: 0px;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.starsSpan span{
+    font-size: x-large;
+    color: gold;
+}
+
+.platforms{
+    font-size: x-large;
+    color: #f02c00;
+}
+
+.iconFavorite{
+    position: absolute;
+    left: 23em;
+    bottom: .5em;
+    font-size: 60px;
+    color: #f12c00;
+}

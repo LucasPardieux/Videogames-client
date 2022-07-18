@@ -4,9 +4,10 @@ import axios from "axios";
 const initialState = {
     allGames: [],
     gameSearched: [],
-    itemSearch:[],//[...this.gameSearched]?.splice(0, 15),
+    itemSearch:[],
     game: {},
     allGenres: [],
+    favorites:[],
     loading: false,
     search: "",
 }
@@ -36,10 +37,16 @@ export const gameSlice = createSlice({
         setItemSearch: function (state, action) {
             state.itemSearch = action.payload
         },
+        setFavorite: function (state, action) {
+            state.favorites = [...state.favorites, action.payload]
+        },
+        removeFavorite: function (state, action) {
+            state.favorites = [...state.favorites.filter(g => g.id !==action.payload.id)]
+        },
     }
 })
 
-export const { setAllGames, setAllGenres, setGame, setLoading, setSearch, gameSearched, setItemSearch } = gameSlice.actions;
+export const { setAllGames, setAllGenres, setGame, setLoading, setSearch, gameSearched, setItemSearch, setFavorite, removeFavorite } = gameSlice.actions;
 
 export default gameSlice.reducer;
 
@@ -111,4 +118,12 @@ export const postGame = (data) =>{
     } catch (error) {
         return error
     }
+}
+
+export const getFavorites = (data) => (dispatch) => {
+    dispatch(setFavorite(data))
+}
+
+export const remFavorite = (data) => (dispatch) => {
+    dispatch(removeFavorite(data))
 }

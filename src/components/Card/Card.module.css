@@ -151,3 +151,10 @@ p {
     -o-transform: translateY(-50px);
     opacity: 1;
 }
+
+.iconFavorite{
+    position: relative;
+    font-size: xx-large;
+    z-index: 5;
+    color: #c23616;
+}

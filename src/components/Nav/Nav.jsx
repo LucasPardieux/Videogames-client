@@ -52,7 +52,7 @@ export class Nav extends Component {
                             <Link to='/createVideogame' className={`${style.navLink}`}>Create</Link>
                         </li>
                         <li>
-                            <Link to='/home' className={`${style.navLink}`}>Rankings</Link>
+                            <Link to='/favorites' className={`${style.navLink}`}>Favorites</Link>
                         </li>
                         <li>
                             <Link to='/home' className={`${style.navLink}`}>About</Link>
