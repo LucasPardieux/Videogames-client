@@ -29,36 +29,22 @@ const Home = () => {
   const ITEMS_PER_PAGE = 15;
 
   var [dataFromApi, satDataFromApi] = useState(allGames)
-  var [DataSearchedFromApi, setDataSearchedFromApi] = useState(gameSearched)
   var [items, setItems] = useState([...allGames]?.splice(0, ITEMS_PER_PAGE))
   var [currentPage, setCurrentPage] = useState(0);
   let pageCount = dataFromApi.length / ITEMS_PER_PAGE;
 
   useEffect(() => {
-    setCurrentPage(0);
     if (allGames.length === 0) updateState();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
   if (items.length === 0) {
-    for (let index = 1; index < 100; index++) {
       if (allGames.length !== 0) {
-        setItems([...allGames].splice(0, ITEMS_PER_PAGE))
+        setItems([...dataFromApi].splice(0, ITEMS_PER_PAGE))
         satDataFromApi(allGames)
       }
     }
-  }
-
-  if (DataSearchedFromApi.length === 0) {
-    for (let index = 1; index < 100; index++) {
-      if (gameSearched.length !== 0) {
-        dispatch(getItemSearch([...gameSearched].splice(0, ITEMS_PER_PAGE)))
-        //setItemsSearch([...gameSearched].splice(0, ITEMS_PER_PAGE))
-        setDataSearchedFromApi(gameSearched)
-      }
-    }
-  }
   
   const filteredGames = () => {
 
@@ -95,6 +81,7 @@ const Home = () => {
 
     if (search !== "") {
       if (genre === "null") {
+        satDataFromApi(gameSearched)
         return dispatch(getItemSearch(gameSearched))
         //return setItemsSearch(DataSearchedFromApi)
       }
@@ -103,6 +90,11 @@ const Home = () => {
           return r.genres?.map(g => g.name).includes(genre)
         }
       })
+      if(filteredGames.length ===0) {
+        dispatch(getItemSearch([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}]))
+        return ;
+      }
+      satDataFromApi(filteredGames)
       return dispatch(getItemSearch(filteredGames))
       //return setItemsSearch(filteredGames)
 
@@ -117,8 +109,12 @@ const Home = () => {
           return r.genres?.map(g => g.name).includes(genre)
         }
       })
-      setItems(filteredGames)
+      if(filteredGames.length ===0) {
+        setItems([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}])
+        return ;
+      }
       satDataFromApi(filteredGames)
+      setItems(filteredGames)
     }
 
 
@@ -285,7 +281,6 @@ const Home = () => {
       setItems(allGames)
       satDataFromApi(allGames)
     }else{
-      setDataSearchedFromApi(gameSearched)
       dispatch(getItemSearch(gameSearched))
     }
   }
@@ -301,20 +296,20 @@ const Home = () => {
           <div className={`${style.gridButton}`}>
             <li><button onClick={(e) => alphaOrder(e)} value={"up"}>▲name▲</button></li>
             <li><button onClick={(e) => alphaOrder(e)} value={"down"}>▼name▼</button></li>
-            <li><button onClick={(e) => ratingOrder(e)} value={"up"}>▲rating▲</button></li>
-            <li><button onClick={(e) => ratingOrder(e)} value={"down"}>▼rating▼</button></li>
+            <li><button onClick={(e) => ratingOrder(e)} value={"down"}>▲rating▲</button></li>
+            <li><button onClick={(e) => ratingOrder(e)} value={"up"}>▼rating▼</button></li>
             <li><button onClick={prevHandler}><AiOutlineArrowLeft /></button></li>
             <li><button onClick={nextHandler}><AiOutlineArrowRight /></button></li>
             <li><button onClick={(e) => apiDataBase(e)} value={"api"}>Api</button></li>
             <li><button onClick={(e) => apiDataBase(e)} value={"db"}>Data Base</button></li>
           </div>
-          <li><select defaultValue={"null"} name="genres" onChange={e => genreSelect(e)}>
+          <li><select  name="genres" onChange={e => genreSelect(e)}>
+          <option value="" selected disabled hidden>Genres filter</option>
             <option value="null">All</option>
             {allGenres?.map((genre) => {
               return <option key={genre.id}>{genre.name}</option>
             })}
           </select></li>
-
         </ul>
       </div>
       <div className={`${style.refreshCont}`}>
@@ -322,8 +317,12 @@ const Home = () => {
       </div>
       <div className={`${style.homeContainer}`}>
         <ul>
-          {
-            loading=== true? <div className={`${style.loading}`}><Loading></Loading></div>: search === "" ? <Cards allGames={filteredGames()} pageCount={pageCount} currentPage={currentPage} /> : <Cards allGames={filteredGames()} pageCount={1} currentPage={currentPage} />
+        {
+            loading=== true? 
+            <div className={`${style.loading}`}><Loading></Loading></div>: 
+            search === "" ? 
+            <Cards allGames={filteredGames()} pageCount={pageCount} currentPage={currentPage} /> : 
+            <Cards allGames={filteredGames()} pageCount={1} currentPage={currentPage} />
           }
         </ul>
       </div>

@@ -87,11 +87,18 @@ const Card = (props) => {
             }
         })
 
-        if (allFavorites.includes(props)) {
+        if(props.id==="1f8p") return;
+
+        if(allFavorites?.filter(e=>e)[0]?.name === props.name){
             return <MdOutlineFavorite />
         } else {
             return <MdOutlineFavoriteBorder />
         }
+    }
+
+    const parseGenres = (genres) =>{
+        const genresArr = genres?.map((g) => g.name)
+        return genresArr?.join(" | ")
     }
 
 
@@ -106,15 +113,15 @@ const Card = (props) => {
                 <div>
                     <div className={`${style.cardInfoReq}`}>
                         <h2>{props.name}</h2>
-                        <p>Rating: {props.rating}</p>
-                        <p>Genres: {props.genres?.map((g) => { return <span key={g.name}>{` / ${g.name}`}</span> })}</p>
+                        <p>Rating: <span>{props.rating}</span></p>
+                        <p>Genres: <span>{parseGenres(props.genres)}</span></p>
                     </div>
                     <div className={`${style.cardInfoNoReq}`}>
                         <span className={`${style.iconFavorite}`} onClick={(e) => { addFavorite(props) }}>
                             {showFavorite(props)}
                         </span>
                         <span>{platformIcon(props.platforms)}</span>
-                        <Link to={`/details/${props.id}`}><button className={`${style.cardDetailsButton}`}>Details</button></Link>
+                        {props.id!=="1f8p"?<Link to={`/details/${props.id}`}><button className={`${style.cardDetailsButton}`}>Details</button></Link>:<span></span>}
                     </div>
                 </div>
             </div>

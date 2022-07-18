@@ -146,7 +146,7 @@ export class CreateGame extends Component {
 
         switch (name) {
             case 'name':
-                let namePattern = /[a-zA-Z]{2,20}/
+                let namePattern = /^[A-Za-z0-9 _-]*$/
                 errors.name = namePattern.test(value) ? '' : 'The title must have at least 2 characters and not contain any special characters or numbers'
                 break;
             case 'released':
@@ -163,7 +163,7 @@ export class CreateGame extends Component {
                 errors.image = urlPattern.test(value) ? '' : 'The image url is not valid';
                 break;
             case 'description':
-                let descriptionPattern = /[a-zA-Z]{5,500}/;
+                let descriptionPattern = /^[A-Za-z0-9,. _-]*$/;
                 errors.description = descriptionPattern.test(value) ? '' : 'The description must be between 5 and 500 characters and contain no special characters or numbers.';
                 break;
             default:
@@ -259,7 +259,7 @@ export class CreateGame extends Component {
                 </div>
                 <div className={`${style.preview}`}>
                     <Card
-                        id={0}
+                        id={"1f8p"}
                         name={this.state.preview.name}
                         image={this.state.preview.image?this.state.preview.image:"https://res.cloudinary.com/lmn/image/upload/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinnyop/d/7/d/orig_d7dec62511f8a78172d019fbbbb66e36.jpg"}
                         genres={this.state.preview.genres}
