@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getFavorites } from '../../redux/reducer/reducer'
 import FavoriteCard from './FavoriteCards/FavoriteCard'
 import style from "./Favorite.module.css"
+import favorite_background from "../../images/Favorites_background.jpg"
 
 
 export class Favorite extends Component {
@@ -13,7 +14,7 @@ export class Favorite extends Component {
       <div className={`${style.contExt}`}>
         <div>
             <ul>
-                {this.props.favorites?.map((f)=>{return (<li><FavoriteCard props={f}/></li>)})}
+            {this.props.favorites.length ===0?<div className={`${style.imageCont}`}><img src={favorite_background}></img></div>:this.props.favorites?.map((f)=>{return (<li><FavoriteCard props={f}/></li>)})}
             </ul>
         </div>
       </div>

@@ -107,10 +107,10 @@ body{
 }
 
 .refreshCont{
-    position: relative;
+    position: absolute;
     left: 51%;
     right: 49%;
-    bottom: 1em;
+    bottom: 17em;
 }
 
 .refreshCont button{
@@ -126,6 +126,33 @@ body{
     top: 3em;
     left: 46.5%;
     right: 56%;
+}
+
+.genresContainer{
+    position: relative;
+    right: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: end;
+}
+
+.genresContainer ul li{
+    list-style: none;
+    width: 100%;
+    margin: 5px;
+}
+
+.genresContainer ul li span{
+    text-align: center;
+    color: white;
+    background-color: #242731;
+    font-size: larger;
+}
+
+.eachGenre{
+    width: 50px;
+    background-color: #242731;
+
 }
 
 @media screen and (max-width:1275px) {
@@ -156,7 +183,7 @@ body{
         top: 79.5%;
     }
     .refreshCont{
-        bottom: 1.5em;
+        bottom: 8em;
     }
 }
 @media screen and (max-height:802px) {

@@ -43,7 +43,7 @@ export class Nav extends Component {
                 <nav className={`${style.nav}`}>
                     <ul className={`${style.navList}`}> 
                         <div className={`${style.navLogo}`}>
-                            <img src={logo} alt="gamerCave Logo" />
+                            <Link to='/'><img src={logo} alt="gamerCave Logo" /></Link>
                         </div>
                         <li>
                             <Link to='/home' className={`${style.navLink}`}>Home</Link>

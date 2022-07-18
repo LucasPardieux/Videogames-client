@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { getAllGames, getAllGenres, getItemSearch } from '../../redux/reducer/reducer';
+import { getAllGames, getAllGenres, getItemSearch, setGames } from '../../redux/reducer/reducer';
 import style from "./Home.module.css";
 import { useState, useEffect } from 'react';
 import { Cards } from '../Cards/Cards';
@@ -29,6 +29,7 @@ const Home = () => {
   const ITEMS_PER_PAGE = 15;
 
   var [dataFromApi, satDataFromApi] = useState(allGames)
+  var [filteredGenres, setFilteredGenres] = useState([])
   var [items, setItems] = useState([...allGames]?.splice(0, ITEMS_PER_PAGE))
   var [currentPage, setCurrentPage] = useState(0);
   let pageCount = dataFromApi.length / ITEMS_PER_PAGE;
@@ -52,7 +53,8 @@ const Home = () => {
       return itemSearch
       /*?.slice(currentPage, currentPage + ITEMS_PER_PAGE)*/
     }
-    return items?.slice(currentPage, currentPage + ITEMS_PER_PAGE)
+    return items;
+    /*?.slice(currentPage, currentPage + ITEMS_PER_PAGE)*/
 
   }
   const nextHandler = () => {
@@ -82,6 +84,7 @@ const Home = () => {
     if (search !== "") {
       if (genre === "null") {
         satDataFromApi(gameSearched)
+        setFilteredGenres([])
         return dispatch(getItemSearch(gameSearched))
         //return setItemsSearch(DataSearchedFromApi)
       }
@@ -94,12 +97,15 @@ const Home = () => {
         dispatch(getItemSearch([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}]))
         return ;
       }
+      if(filteredGenres.includes(genre)) return;
+      setFilteredGenres([...filteredGenres, e.target.value])
       satDataFromApi(filteredGames)
       return dispatch(getItemSearch(filteredGames))
       //return setItemsSearch(filteredGames)
 
     } else {
       if (genre === "null") {
+        setFilteredGenres([])
         setItems(allGames)
         return satDataFromApi(allGames)
       }
@@ -113,11 +119,11 @@ const Home = () => {
         setItems([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}])
         return ;
       }
+      if(filteredGenres.includes(genre)) return;
+      setFilteredGenres([...filteredGenres, e.target.value])
       satDataFromApi(filteredGames)
       setItems(filteredGames)
     }
-
-
   }
 
   const alphaOrder = (e) => {
@@ -276,11 +282,14 @@ const Home = () => {
   }
 
   const refreshHandler = () => {
-    setCurrentPage(0)
+    setCurrentPage(0);
+    dispatch(getAllGames());
+    setFilteredGenres([])
     if(search===""){
       setItems(allGames)
       satDataFromApi(allGames)
     }else{
+      dispatch(getAllGames());
       dispatch(getItemSearch(gameSearched))
     }
   }
@@ -312,6 +321,16 @@ const Home = () => {
           </select></li>
         </ul>
       </div>
+      <div className={`${style.genresContainer}`}>
+        {console.log(filteredGenres)}
+          <ul>
+          {filteredGenres?.map((f) => {
+              return (<li>
+                  <div className={`${style.eachGenre}`}><span>{f}</span></div>
+              </li>)
+            })}
+          </ul>
+        </div>
       <div className={`${style.refreshCont}`}>
       <button className={`${style.refreshButton}`} onClick={(e) => refreshHandler(e)} value={"db"}><HiRefresh/></button>
       </div>

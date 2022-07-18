@@ -121,9 +121,13 @@ export const postGame = (data) =>{
 }
 
 export const getFavorites = (data) => (dispatch) => {
-    dispatch(setFavorite(data))
+    dispatch(setFavorite(data));
 }
 
 export const remFavorite = (data) => (dispatch) => {
-    dispatch(removeFavorite(data))
+    dispatch(removeFavorite(data));
+}
+
+export const setGames = (data) => (dispatch) => {
+    dispatch(getAllGames(data));
 }
