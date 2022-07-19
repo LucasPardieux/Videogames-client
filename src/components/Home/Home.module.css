@@ -30,7 +30,7 @@ body{
     height: max-content;
     width: 100%;
     top: 69.5%;
-    z-index: -3;
+    z-index: 0;
     background-color: #010615;
 }
 
