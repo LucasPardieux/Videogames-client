@@ -255,7 +255,8 @@ const Home = () => {
   const apiDataBase = async (e) => {
     let value = e.target.value;
     setCurrentPage(0);
-    
+    setFilteredGenres([])
+  
     pageCount = 0;
     if (value === "api") {
       if (search !== "") {
