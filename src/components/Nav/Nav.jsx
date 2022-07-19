@@ -55,7 +55,7 @@ export class Nav extends Component {
                             <Link to='/favorites' className={`${style.navLink}`}>Favorites</Link>
                         </li>
                         <li>
-                            <Link to='/home' className={`${style.navLink}`}>About</Link>
+                            <Link to='/about' className={`${style.navLink}`}>About</Link>
                         </li>
                         <div className={`${style.inBuild}`}>
                             <img src={inBuild} alt="inBuild" />

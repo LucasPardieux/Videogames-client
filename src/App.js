@@ -9,6 +9,7 @@ import Nav from './components/Nav/Nav';
 import Details from './components/Details/Details';
 import CreateGame from './components/CreateGame/CreateGame';
 import Favorite from './components/Favorite/Favorite';
+import About from './components/About/About';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <BrowserRouter>
       <Switch>
       <Route exact path='/' component={Landing} />
+      <Route exact path='/about' component={About} />
       <>
       <Route path='/' component={Nav} />
       <Route exact path='/home' component={Home} />
