@@ -286,11 +286,11 @@ const Home = () => {
     dispatch(getAllGames());
     setFilteredGenres([])
     if(search===""){
-      setItems(allGames)
+      setItems(allGames?.slice(currentPage, currentPage + ITEMS_PER_PAGE))
       satDataFromApi(allGames)
     }else{
       dispatch(getAllGames());
-      dispatch(getItemSearch(gameSearched))
+      dispatch(getItemSearch(gameSearched?.slice(currentPage, currentPage + ITEMS_PER_PAGE)))
     }
   }
 
