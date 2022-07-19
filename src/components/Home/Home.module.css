@@ -183,12 +183,12 @@ body{
         top: 79.5%;
     }
     .refreshCont{
-        bottom: 8em;
+        bottom: 1.5em;
     }
 }
 @media screen and (max-height:802px) {
     .refreshCont{
-        bottom: 2em;
+        bottom: 8em;
     }
 }
 
