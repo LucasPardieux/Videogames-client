@@ -93,12 +93,12 @@ const Home = () => {
           return r.genres?.map(g => g.name).includes(genre)
         }
       })
+      if(filteredGenres.includes(genre)) return;
+      setFilteredGenres([...filteredGenres, e.target.value])
       if(filteredGames.length ===0) {
         dispatch(getItemSearch([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}]))
         return ;
       }
-      if(filteredGenres.includes(genre)) return;
-      setFilteredGenres([...filteredGenres, e.target.value])
       satDataFromApi(filteredGames)
       return dispatch(getItemSearch(filteredGames))
       //return setItemsSearch(filteredGames)
@@ -115,12 +115,12 @@ const Home = () => {
           return r.genres?.map(g => g.name).includes(genre)
         }
       })
+      if(filteredGenres.includes(genre)) return;
+      setFilteredGenres([...filteredGenres, e.target.value])
       if(filteredGames.length ===0) {
         setItems([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}])
         return ;
       }
-      if(filteredGenres.includes(genre)) return;
-      setFilteredGenres([...filteredGenres, e.target.value])
       satDataFromApi(filteredGames)
       setItems(filteredGames)
     }

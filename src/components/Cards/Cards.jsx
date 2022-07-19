@@ -2,6 +2,7 @@ import React from 'react'
 import Card from '../Card/Card';
 import style from "./Cards.module.css"
 import { useSelector } from 'react-redux';
+import imageGameNotFound from "../../images/kratos-gamenotfound.png"
 
 
 export const Cards = (props) => {
@@ -35,7 +36,7 @@ export const Cards = (props) => {
                 <p>{Math.ceil(props.pageCount)}</p>
             </div>:<div></div>}
             <ul className={`${style.ulGame}`}>
-                {props.allGames?.length!==0?eachGame:"No games found"}
+            {props.allGames?.length!==0?eachGame:<img src={imageGameNotFound}/>}
             </ul>
         </div>
   )
