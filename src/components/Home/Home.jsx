@@ -256,6 +256,10 @@ const Home = () => {
     let value = e.target.value;
     setCurrentPage(0);
     setFilteredGenres([])
+    var options = document.getElementById("selectGenre")
+      for (var i = 0, l = options.length; i < l; i++) {
+        options[i].selected = options[i].defaultSelected;
+      }
   
     pageCount = 0;
     if (value === "api") {
@@ -285,7 +289,11 @@ const Home = () => {
   const refreshHandler = () => {
     setCurrentPage(0);
     dispatch(getAllGames());
-    setFilteredGenres([])
+    setFilteredGenres([]);
+    var options = document.getElementById("selectGenre")
+      for (var i = 0, l = options.length; i < l; i++) {
+        options[i].selected = options[i].defaultSelected;
+      }
     if(search===""){
       setItems(allGames?.slice(currentPage, currentPage + ITEMS_PER_PAGE))
       satDataFromApi(allGames)
@@ -313,7 +321,7 @@ const Home = () => {
             <li><button onClick={(e) => apiDataBase(e)} value={"api"}>Api</button></li>
             <li><button onClick={(e) => apiDataBase(e)} value={"db"}>Data Base</button></li>
           </div>
-          <li><select  name="genres" onChange={e => genreSelect(e)}>
+          <li><select id='selectGenre' name="genres" onChange={e => genreSelect(e)}>
           <option value="" selected disabled hidden>Genres filter</option>
             <option value="null">All</option>
             {allGenres?.map((genre) => {

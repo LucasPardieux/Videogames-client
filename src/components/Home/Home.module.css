@@ -26,7 +26,7 @@ body{
 }
 
 .homeContainer{
-    position: absolute;
+    position: relative;
     height: max-content;
     width: 100%;
     top: 69.5%;
@@ -107,10 +107,10 @@ body{
 }
 
 .refreshCont{
-    position: absolute;
+    position: relative;
     left: 51%;
     right: 49%;
-    bottom: 17em;
+    bottom: 0.7em;
 }
 
 .refreshCont button{
@@ -186,18 +186,10 @@ body{
         bottom: 1.5em;
     }
 }
-@media screen and (max-height:802px) {
-    .refreshCont{
-        bottom: 8em;
-    }
-}
 
 @media screen and (max-height:750px) {
     .homeContainer{
         top: 85.5%;
-    }
-    .refreshCont{
-        bottom: 2.2em;
     }
 }
 
@@ -211,7 +203,6 @@ body{
 @media screen and (max-height:647px) {
     .homeContainer{
         top: 95.5%;
-
     }
 }
 
