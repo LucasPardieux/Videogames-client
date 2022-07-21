@@ -49,13 +49,10 @@ const Home = () => {
   }
 
   window.onscroll = function () {
-    console.log(document.documentElement.scrollTop)
     if (document.documentElement.scrollTop > 600 || document.documentElement.scrollTop > 700) {
-      console.log(document.querySelector("#goTopCont"));
-      document.querySelector("#goTopCont")?.classList.add("Home_show__KPDPq")
+      document.querySelector("#goTopCont")?.classList.add("Home_show__3fvp3")
     } else {
-      console.log(document.querySelector("#goTopCont")?.classList);
-      document.querySelector("#goTopCont")?.classList.remove("Home_show__KPDPq")
+      document.querySelector("#goTopCont")?.classList.remove("Home_show__3fvp3")
     }
   }
 
@@ -377,7 +374,7 @@ const Home = () => {
           }
         </ul>
       </div>
-      <div id='goTopCont' className={style.show}>
+      <div id='goTopCont' className={style.goTopCont}>
         <div className={style.goTopBut} onClick={goUp}>
           <i href='#top'><BsArrowUpShort></BsArrowUpShort></i>
         </div>
