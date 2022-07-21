@@ -14,7 +14,7 @@ export class Favorite extends Component {
       <div className={`${style.contExt}`}>
         <div>
             <ul>
-            {this.props.favorites.length ===0?<div className={`${style.imageCont}`}><img src={favorite_background}></img></div>:this.props.favorites?.map((f)=>{return (<li><FavoriteCard props={f}/></li>)})}
+            {this.props.favorites.length ===0?<div className={`${style.imageCont}`}><img src={favorite_background} alt="favorite_background"></img></div>:this.props.favorites?.map((f)=>{return (<li><FavoriteCard props={f}/></li>)})}
             </ul>
         </div>
       </div>

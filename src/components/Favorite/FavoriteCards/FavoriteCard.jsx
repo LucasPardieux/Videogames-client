@@ -150,28 +150,30 @@ const FavoriteCard = ({ props }) => {
     }
 
     return (
-        <Link to={`/details/${props.id}`}>
-            <div className={`${style.contExt}`}>
-                <div className={`${style.contenedor}`}>
-                    <div>
-                        <div className={`${style.imageCont}`}>
-                            <img src={props.image} alt="Game Card" />
-                        </div>
-                        <div className={`${style.information}`}>
-                            <h2>{props.name}</h2>
-                            <p>Platforms:    <span className={`${style.platforms}`}>{platformIcon(props.platforms)}</span></p>
-                            <p>Genres: {props.genres?.map((g) => { return <span key={g.name}>{` / ${g.name}`}</span> })}</p>
-                            <div className={`${style.starsSpan}`}>
-                                <span>{ratingStars(props.rating)}</span>
+        <div>
+            <Link to={`/details/${props.id}`}>
+                <div className={`${style.contExt}`}>
+                    <div className={`${style.contenedor}`}>
+                        <div>
+                            <div className={`${style.imageCont}`}>
+                                <img src={props.image} alt="Game Card" />
                             </div>
-                            <span className={`${style.iconFavorite}`} onClick={(e) => { addFavorite(props) }}>
-                                {showFavorite(props)}
-                            </span>
+                            <div className={`${style.information}`}>
+                                <h2>{props.name}</h2>
+                                <p>Platforms:    <span className={`${style.platforms}`}>{platformIcon(props.platforms)}</span></p>
+                                <p>Genres: {props.genres?.map((g) => { return <span key={g.name}>{` / ${g.name}`}</span> })}</p>
+                                <div className={`${style.starsSpan}`}>
+                                    <span>{ratingStars(props.rating)}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </Link>
+            </Link>
+            <span className={`${style.iconFavorite}`} onClick={(e) => { addFavorite(props) }}>
+                {showFavorite(props)}
+            </span>
+        </div>
     )
 }
 

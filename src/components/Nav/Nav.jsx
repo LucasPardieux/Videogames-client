@@ -22,6 +22,7 @@ export class Nav extends Component {
 
     async searchHandler(e) {
         const input = document.getElementById("inputSearch").value;
+        document.getElementById("inputSearch").value = "";
         this.props.history.push("/home")
         if (input === "" || input === " ") {
             this.props.putSearchedGames();
@@ -32,6 +33,7 @@ export class Nav extends Component {
     }
 
     async refreshHandler (e){
+        document.getElementById("inputSearch").value = "";
         this.props.putSearchedGames();
         this.props.getAllGames();
     }

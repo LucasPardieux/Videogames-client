@@ -36,7 +36,7 @@ export const Cards = (props) => {
                 <p>{Math.ceil(props.pageCount)}</p>
             </div>:<div></div>}
             <ul className={`${style.ulGame}`}>
-            {props.allGames?.length!==0?eachGame:<img src={imageGameNotFound}/>}
+            {props.allGames?.length!==0?eachGame:<img src={imageGameNotFound} alt="gameNotFound"/>}
             </ul>
         </div>
   )

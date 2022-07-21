@@ -139,6 +139,12 @@
     top: 300px;
 }
 
+@media (max-height:600px) {
+    .preview{
+        top: 100px;
+    }
+}
+
 @media (min-width:1300) {
     .preview{
         left: 63%;

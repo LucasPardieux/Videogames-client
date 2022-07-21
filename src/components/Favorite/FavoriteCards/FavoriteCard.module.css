@@ -63,9 +63,10 @@
 }
 
 .iconFavorite{
-    position: absolute;
+    position: relative;
     left: 21em;
-    bottom: .5em;
+    top: 0.7em;
     font-size: 60px;
     color: #f12c00;
+    z-index: 20;
 }

@@ -20,7 +20,6 @@ export class Details extends Component {
 
     mapPlatforms(platforms) {
         const newArray = platforms?.map((p) => {
-            console.log(p);
             if(p.hasOwnProperty("platform")){
                 return p.platform.name
             }else{
@@ -121,7 +120,7 @@ export class Details extends Component {
                     </div>
 
                     <div className={`${style.gameComents}`}>
-                        {this.props.game.ratings?this.ratingComments(this.props.game.ratings)?.map((r)=>{return (<div>
+                    {this.props.game.ratings?this.ratingComments(this.props.game.ratings)?.map((r)=>{return (<div key={r.id}>
                             <div className={`${style.eachComment}`}>
                             <img src={r.image} alt="user" /> <span>"{r.name}"</span>
                             </div>

@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { getAllGames, getAllGenres, getItemSearch, setGames } from '../../redux/reducer/reducer';
+import { getAllGames, getAllGenres, getItemSearch } from '../../redux/reducer/reducer';
 import style from "./Home.module.css";
 import { useState, useEffect } from 'react';
 import { Cards } from '../Cards/Cards';
 import headerVideo from "../../images/header_l77cMXfi.mp4";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import { HiRefresh } from "react-icons/hi"
+import { BsArrowUpShort } from "react-icons/bs"
 import {HiRefresh} from "react-icons/hi"
 import Loading from '../Loading/Loading';
 
@@ -46,6 +48,22 @@ const Home = () => {
         satDataFromApi(allGames)
       }
     }
+
+  window.onscroll = function () {
+    if (document.documentElement.scrollTop > 600 || document.documentElement.scrollTop > 700) {
+      document.querySelector("#goTopCont")?.classList.add("Home_show__KPDPq")
+    } else {
+      document.querySelector("#goTopCont")?.classList.remove("Home_show__KPDPq")
+    }
+  }
+
+  const goUp = () => {
+     window.scrollTo({
+      top: 0,
+      behavior: "smooth" 
+    })
+  }
+  
   
   const filteredGames = () => {
 
@@ -134,7 +152,7 @@ const Home = () => {
 
     if (value === "up") {
       if (search !== "") {
-        const neatArray = [...gameSearched].sort((prev, next) => {
+        const neatArray = [...itemSearch].sort((prev, next) => {
           if (prev.name > next.name) {
             return 1;
           }
@@ -162,7 +180,7 @@ const Home = () => {
     }
     if (value === "down") {
       if (search !== "") {
-        const neatArray = [...gameSearched].sort((prev, next) => {
+        const neatArray = [...itemSearch].sort((prev, next) => {
           if (prev.name > next.name) {
             return -1;
           }
@@ -198,7 +216,7 @@ const Home = () => {
 
     if (value === "down") {
       if (search !== "") {
-        const neatArray = [...gameSearched].sort((next, prev) => {
+        const neatArray = [...itemSearch].sort((next, prev) => {
 
           if (prev.rating < next.rating) {
             return 1;
@@ -225,7 +243,7 @@ const Home = () => {
 
     if (value === "up") {
       if (search !== "") {
-        const neatArray = [...gameSearched].sort((next, prev) => {
+        const neatArray = [...itemSearch].sort((next, prev) => {
 
           if (prev.rating > next.rating) {
             return 1;
@@ -305,7 +323,7 @@ const Home = () => {
 
 
   return (
-    <div className={`${style.homeAll}`}>
+    <div id='top' className={`${style.homeAll}`}>
       <div className={`${style.homeVideo}`}>
         <video loop muted autoPlay="autoplay" src={`${headerVideo}`} poster="https://images4.alphacoders.com/903/thumb-1920-903637.jpg" />
       </div>
@@ -321,21 +339,20 @@ const Home = () => {
             <li><button onClick={(e) => apiDataBase(e)} value={"api"}>Api</button></li>
             <li><button onClick={(e) => apiDataBase(e)} value={"db"}>Data Base</button></li>
           </div>
-          <li><select id='selectGenre' name="genres" onChange={e => genreSelect(e)}>
-          <option value="" selected disabled hidden>Genres filter</option>
+          <li><select defaultValue={"Genres filter"} id='selectGenre' name="genres" onChange={e => genreSelect(e)}>
+          <option value="" disabled hidden>Genres filter</option>
             <option value="null">All</option>
             {allGenres?.map((genre) => {
-              return <option key={genre.id}>{genre.name}</option>
+              return <option value={genre.name} key={genre.id}>{genre.name}</option>
             })}
           </select></li>
         </ul>
       </div>
       <div className={`${style.genresContainer}`}>
-        {console.log(filteredGenres)}
           <ul>
           {filteredGenres?.map((f) => {
-              return (<li>
-                  <div className={`${style.eachGenre}`}><span>{f}</span></div>
+            return (<li key={f}>
+              <div className={`${style.eachGenre}`}><span>{f}</span></div>
               </li>)
             })}
           </ul>
@@ -353,6 +370,11 @@ const Home = () => {
             <Cards allGames={filteredGames()} pageCount={1} currentPage={currentPage} />
           }
         </ul>
+      </div>
+      <div id='goTopCont' className={style.goTopCont}>
+        <div className={style.goTopBut} onClick={goUp}>
+          <i href='#top'><BsArrowUpShort></BsArrowUpShort></i>
+        </div>
       </div>
     </div>
   )
