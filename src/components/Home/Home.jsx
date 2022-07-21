@@ -32,14 +32,17 @@ const Home = () => {
 
   var [dataFromApi, satDataFromApi] = useState(allGames)
   var [filteredGenres, setFilteredGenres] = useState([])
+  var [dataSearched, setDataSearched] = useState(gameSearched)
   var [items, setItems] = useState([...allGames]?.splice(0, ITEMS_PER_PAGE))
   var [currentPage, setCurrentPage] = useState(0);
   let pageCount = dataFromApi.length / ITEMS_PER_PAGE;
 
   useEffect(() => {
     if (allGames.length === 0) updateState();
+    setDataSearched(gameSearched)
+
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [gameSearched])
 
   if (items.length === 0) {
     if (allGames.length !== 0) {
@@ -102,12 +105,13 @@ const Home = () => {
 
     if (search !== "") {
       if (genre === "null") {
-        satDataFromApi(gameSearched)
+        //satDataFromApi(gameSearched)
+        setDataSearched(gameSearched)
         setFilteredGenres([])
         return dispatch(getItemSearch(gameSearched?.slice(currentPage, currentPage + ITEMS_PER_PAGE)))
         //return setItemsSearch(DataSearchedFromApi)
       }
-      const filteredGames = gameSearched.filter((r) => {
+      const filteredGames = [...dataSearched].filter((r) => {
         if (r.hasOwnProperty("genres")) {
           return r.genres?.map(g => g.name).includes(genre)
         }
@@ -118,7 +122,8 @@ const Home = () => {
         dispatch(getItemSearch([{ name: "Game not found", id: "1f8p", image: "https://www.purposegames.com/images/games/background/271/271929.png" }]))
         return;
       }
-      satDataFromApi(filteredGames)
+      setDataSearched(filteredGames)
+      //satDataFromApi(filteredGames)
       return dispatch(getItemSearch(filteredGames?.slice(currentPage, currentPage + ITEMS_PER_PAGE)))
       //return setItemsSearch(filteredGames)
 
@@ -284,6 +289,7 @@ const Home = () => {
     if (value === "api") {
       if (search !== "") {
         const neatArray = [...gameSearched].filter((e) => typeof (e.id) === "number")
+        setDataSearched(neatArray)
         return dispatch(getItemSearch(neatArray))
       } else {
         const neatArray = [...allGames].filter((e) => typeof (e.id) === "number")
@@ -296,6 +302,7 @@ const Home = () => {
     if (value === "db") {
       if (search !== "") {
         const neatArray = [...gameSearched].filter((e) => typeof (e.id) === "string")
+        setDataSearched(neatArray)
         return dispatch(getItemSearch(neatArray))
       } else {
         const neatArray = [...allGames].filter((e) => typeof (e.id) === "string")
@@ -311,13 +318,13 @@ const Home = () => {
     setCurrentPage(0);
     dispatch(getAllGames());
     setFilteredGenres([]);
+    satDataFromApi(allGames)
     var options = document.getElementById("selectGenre")
     for (var i = 0, l = options.length; i < l; i++) {
       options[i].selected = options[i].defaultSelected;
     }
     if (search === "") {
       setItems(allGames?.slice(currentPage, currentPage + ITEMS_PER_PAGE))
-      satDataFromApi(allGames)
     } else {
       dispatch(getAllGames());
       dispatch(getItemSearch(gameSearched?.slice(currentPage, currentPage + ITEMS_PER_PAGE)))

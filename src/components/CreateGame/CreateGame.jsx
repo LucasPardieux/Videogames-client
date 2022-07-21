@@ -163,7 +163,7 @@ export class CreateGame extends Component {
                 errors.image = urlPattern.test(value) ? '' : 'The image url is not valid';
                 break;
             case 'description':
-                let descriptionPattern = /^[A-Za-z0-9,. _-]*$/;
+                let descriptionPattern = /^[A-Za-z0-9ñ,. _-]*$/;
                 errors.description = descriptionPattern.test(value) ? '' : 'The description must be between 5 and 500 characters and contain no special characters or numbers.';
                 break;
             default:
