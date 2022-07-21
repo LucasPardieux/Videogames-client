@@ -8,7 +8,6 @@ import headerVideo from "../../images/header_l77cMXfi.mp4";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { HiRefresh } from "react-icons/hi"
 import { BsArrowUpShort } from "react-icons/bs"
-import {HiRefresh} from "react-icons/hi"
 import Loading from '../Loading/Loading';
 
 
