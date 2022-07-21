@@ -11,12 +11,13 @@ import { BsArrowUpShort } from "react-icons/bs"
 import Loading from '../Loading/Loading';
 
 
+
 const Home = () => {
 
   const allGames = useSelector(state => state.videogames.allGames);
   const search = useSelector(state => state.videogames.search);
-  const itemSearch = useSelector(state => state.videogames.itemSearch);
   const loading = useSelector(state => state.videogames.loading);
+  const itemSearch = useSelector(state => state.videogames.itemSearch);
   const gameSearched = useSelector(state => state.videogames.gameSearched);
   const allGenres = useSelector(state => state.videogames.allGenres);
   const dispatch = useDispatch();
@@ -40,13 +41,12 @@ const Home = () => {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
   if (items.length === 0) {
-      if (allGames.length !== 0) {
-        setItems([...dataFromApi].splice(0, ITEMS_PER_PAGE))
-        satDataFromApi(allGames)
-      }
+    if (allGames.length !== 0) {
+      setItems([...dataFromApi].splice(0, ITEMS_PER_PAGE))
+      satDataFromApi(allGames)
     }
+  }
 
   window.onscroll = function () {
     if (document.documentElement.scrollTop > 600 || document.documentElement.scrollTop > 700) {
@@ -62,8 +62,10 @@ const Home = () => {
       behavior: "smooth" 
     })
   }
-  
-  
+
+
+
+
   const filteredGames = () => {
 
     if (search !== "" || search === undefined) {
@@ -110,11 +112,11 @@ const Home = () => {
           return r.genres?.map(g => g.name).includes(genre)
         }
       })
-      if(filteredGenres.includes(genre)) return;
+      if (filteredGenres.includes(genre)) return;
       setFilteredGenres([...filteredGenres, e.target.value])
-      if(filteredGames.length ===0) {
-        dispatch(getItemSearch([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}]))
-        return ;
+      if (filteredGames.length === 0) {
+        dispatch(getItemSearch([{ name: "Game not found", id: "1f8p", image: "https://www.purposegames.com/images/games/background/271/271929.png" }]))
+        return;
       }
       satDataFromApi(filteredGames)
       return dispatch(getItemSearch(filteredGames?.slice(currentPage, currentPage + ITEMS_PER_PAGE)))
@@ -132,16 +134,16 @@ const Home = () => {
           return r.genres?.map(g => g.name).includes(genre)
         }
       })
-      if(filteredGenres.includes(genre)) return;
+      if (filteredGenres.includes(genre)) return;
       setFilteredGenres([...filteredGenres, e.target.value])
-      if(filteredGames.length ===0) {
-        setItems([{name:"Game not found", id:"1f8p", image:"https://www.purposegames.com/images/games/background/271/271929.png"}])
-        return ;
+      if (filteredGames.length === 0) {
+        setItems([{ name: "Game not found", id: "1f8p", image: "https://www.purposegames.com/images/games/background/271/271929.png" }])
+        return;
       }
       satDataFromApi(filteredGames)
       setItems(filteredGames?.slice(currentPage, currentPage + ITEMS_PER_PAGE))
     }
-  }
+  };
 
   const alphaOrder = (e) => {
     const value = e.target.value;
@@ -172,7 +174,7 @@ const Home = () => {
           }
           return 0;
         })
-        setItems(neatArray?.slice(currentPage, currentPage + ITEMS_PER_PAGE));
+        setItems(neatArray?.slice(0, 0 + ITEMS_PER_PAGE));
         return satDataFromApi(neatArray)
       }
 
@@ -200,7 +202,7 @@ const Home = () => {
           }
           return 0;
         })
-        setItems(neatArray?.slice(currentPage, currentPage + ITEMS_PER_PAGE));
+        setItems(neatArray?.slice(0, 0 + ITEMS_PER_PAGE));
         satDataFromApi(neatArray)
         return;
       }
@@ -233,7 +235,7 @@ const Home = () => {
             return -1;
           }
         })
-        setItems(neatArray?.slice(currentPage, currentPage + ITEMS_PER_PAGE));
+        setItems(neatArray?.slice(0, 0 + ITEMS_PER_PAGE));
         satDataFromApi(neatArray)
         return;
       }
@@ -261,7 +263,7 @@ const Home = () => {
             return -1;
           }
         })
-        setItems(neatArray?.slice(currentPage, currentPage + ITEMS_PER_PAGE));
+        setItems(neatArray?.slice(0, 0 + ITEMS_PER_PAGE));
         satDataFromApi(neatArray)
         return;
       }
@@ -272,31 +274,33 @@ const Home = () => {
   const apiDataBase = async (e) => {
     let value = e.target.value;
     setCurrentPage(0);
-    setFilteredGenres([])
+    setFilteredGenres([]);
     var options = document.getElementById("selectGenre")
-      for (var i = 0, l = options.length; i < l; i++) {
-        options[i].selected = options[i].defaultSelected;
-      }
-  
+    for (var i = 0, l = options.length; i < l; i++) {
+      options[i].selected = options[i].defaultSelected;
+    }
+
     pageCount = 0;
     if (value === "api") {
       if (search !== "") {
-        const neatArray = [...gameSearched].filter((e) => typeof(e.id)==="number")
+        const neatArray = [...gameSearched].filter((e) => typeof (e.id) === "number")
         return dispatch(getItemSearch(neatArray))
-      }else{
-        const neatArray = [...allGames].filter((e) => typeof(e.id)==="number")
+      } else {
+        const neatArray = [...allGames].filter((e) => typeof (e.id) === "number")
         setItems(neatArray.slice(0, 0 + ITEMS_PER_PAGE));
+        //setGames(neatArray);
         satDataFromApi(neatArray)
         return;
       }
     }
     if (value === "db") {
       if (search !== "") {
-        const neatArray = [...gameSearched].filter((e) => typeof(e.id)==="string")
+        const neatArray = [...gameSearched].filter((e) => typeof (e.id) === "string")
         return dispatch(getItemSearch(neatArray))
-      }else{
-        const neatArray = [...allGames].filter((e) => typeof(e.id)==="string")
+      } else {
+        const neatArray = [...allGames].filter((e) => typeof (e.id) === "string")
         setItems(neatArray.slice(0, 0 + ITEMS_PER_PAGE));
+        //setGames(neatArray);
         satDataFromApi(neatArray)
         return;
       }
@@ -308,13 +312,13 @@ const Home = () => {
     dispatch(getAllGames());
     setFilteredGenres([]);
     var options = document.getElementById("selectGenre")
-      for (var i = 0, l = options.length; i < l; i++) {
-        options[i].selected = options[i].defaultSelected;
-      }
-    if(search===""){
+    for (var i = 0, l = options.length; i < l; i++) {
+      options[i].selected = options[i].defaultSelected;
+    }
+    if (search === "") {
       setItems(allGames?.slice(currentPage, currentPage + ITEMS_PER_PAGE))
       satDataFromApi(allGames)
-    }else{
+    } else {
       dispatch(getAllGames());
       dispatch(getItemSearch(gameSearched?.slice(currentPage, currentPage + ITEMS_PER_PAGE)))
     }
@@ -339,7 +343,7 @@ const Home = () => {
             <li><button onClick={(e) => apiDataBase(e)} value={"db"}>Data Base</button></li>
           </div>
           <li><select defaultValue={"Genres filter"} id='selectGenre' name="genres" onChange={e => genreSelect(e)}>
-          <option value="" disabled hidden>Genres filter</option>
+            <option value="" disabled hidden>Genres filter</option>
             <option value="null">All</option>
             {allGenres?.map((genre) => {
               return <option value={genre.name} key={genre.id}>{genre.name}</option>
@@ -348,25 +352,25 @@ const Home = () => {
         </ul>
       </div>
       <div className={`${style.genresContainer}`}>
-          <ul>
+        <ul>
           {filteredGenres?.map((f) => {
             return (<li key={f}>
               <div className={`${style.eachGenre}`}><span>{f}</span></div>
-              </li>)
-            })}
-          </ul>
-        </div>
+            </li>)
+          })}
+        </ul>
+      </div>
       <div className={`${style.refreshCont}`}>
-      <button className={`${style.refreshButton}`} onClick={(e) => refreshHandler(e)} value={"db"}><HiRefresh/></button>
+        <button className={`${style.refreshButton}`} onClick={(e) => refreshHandler(e)} value={"db"}><HiRefresh /></button>
       </div>
       <div className={`${style.homeContainer}`}>
         <ul>
-        {
-            loading=== true? 
-            <div className={`${style.loading}`}><Loading></Loading></div>: 
-            search === "" ? 
-            <Cards allGames={filteredGames()} pageCount={pageCount} currentPage={currentPage} /> : 
-            <Cards allGames={filteredGames()} pageCount={1} currentPage={currentPage} />
+          {
+            loading === true ?
+              <div className={`${style.loading}`}><Loading></Loading></div> :
+              search === "" ?
+                <Cards allGames={filteredGames()} pageCount={pageCount} currentPage={currentPage} /> :
+                <Cards allGames={filteredGames()} pageCount={1} currentPage={currentPage} />
           }
         </ul>
       </div>
