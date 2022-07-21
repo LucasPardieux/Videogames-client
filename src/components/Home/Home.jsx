@@ -49,6 +49,7 @@ const Home = () => {
   }
 
   window.onscroll = function () {
+    console.log(document.documentElement.scrollTop)
     if (document.documentElement.scrollTop > 600 || document.documentElement.scrollTop > 700) {
       document.querySelector("#goTopCont")?.classList.add("Home_show__KPDPq")
     } else {
