@@ -377,7 +377,7 @@ const Home = () => {
           }
         </ul>
       </div>
-      <div id='goTopCont' className={style.goTopCont}>
+      <div id='goTopCont' className={style.show}>
         <div className={style.goTopBut} onClick={goUp}>
           <i href='#top'><BsArrowUpShort></BsArrowUpShort></i>
         </div>
