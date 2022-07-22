@@ -147,7 +147,7 @@ export class CreateGame extends Component {
         switch (name) {
             case 'name':
                 let namePattern = /^(?!\s*$)[A-Za-z0-9 _-]*$/
-                errors.name = namePattern.test(value)  ? '' : 'The title cannot start with an empty space and must not contain any special characters or numbers'
+                errors.name = value.startsWith(" ")?'cannot start with an empty space': namePattern.test(value)? value.endsWith(" ")? 'cannot ends with an empty space':'':'The title cannot start with an empty space and must not contain any special characters or numbers';
                 break;
             case 'released':
                 let fechas = value
