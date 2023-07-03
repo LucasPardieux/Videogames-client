@@ -54,13 +54,13 @@ export const getAllGames = (input) => async (dispatch) => {
     try {
         if(input===""||input===undefined){
             dispatch(setLoading(true));
-            const games = await axios.get("https://gamer-cave-api.herokuapp.com/videogames");
+            const games = await axios.get("https://gamer-cave-api.onrender.com/videogames");
             dispatch(setAllGames(games.data));
             dispatch(setLoading(false));
         }else{
             dispatch(setSearch(input))
             dispatch(setLoading(true));
-    return axios.get(`https://gamer-cave-api.herokuapp.com/videogames?name=${input}`)
+    return axios.get(`https://gamer-cave-api.onrender.com/videogames?name=${input}`)
         .then((response) => response.data)
         .then((data) => {
             dispatch(gameSearched(data))
@@ -84,7 +84,7 @@ export const putSearchedGames = (input) => (dispatch) => {
 
 export const getAllGenres = () => (dispatch) => {
 
-    return axios.get(`https://gamer-cave-api.herokuapp.com/genres`)
+    return axios.get(`https://gamer-cave-api.onrender.com/genres`)
         .then((response) => response.data)
         .then((data) => {
             dispatch(setAllGenres(data))
@@ -95,7 +95,7 @@ export const getAllGenres = () => (dispatch) => {
 export const getGame = (idGame) => async (dispatch) => {
     try {
         dispatch(setLoading(true));
-        const game = await axios.get(`https://gamer-cave-api.herokuapp.com/videogame/${idGame}`)
+        const game = await axios.get(`https://gamer-cave-api.onrender.com/videogame/${idGame}`)
         console.log(game)
         dispatch(setGame(game.data));
         dispatch(setLoading(false));
@@ -112,7 +112,7 @@ export const postGame = (data) =>{
     try {
         return axios({
             method: "post",
-            url: "https://gamer-cave-api.herokuapp.com/videogames/",
+            url: "https://gamer-cave-api.onrender.com/videogames/",
             data: data
         })
     } catch (error) {
